@@ -1,0 +1,45 @@
+<div class="form-group">
+    <h2>Registration Form</h2>
+    
+    <mat-card>
+    <form [formGroup]="registrationForm" >
+        
+        
+          <div class="form-group">
+        <p>
+            <mat-form-field>
+              <input type="text"  class="form-control" matInput placeholder="FirstName" formControlName="firstName" name="firstName" >
+              <mat-error *ngIf="registrationForm.get('firstName').errors?.required">firstName is required</mat-error>
+            </mat-form-field>
+          </p>
+        </div>    
+        <div class="form-group">
+          <p>
+              <mat-form-field >
+                <input type="text" class="form-control" matInput placeholder="LastName" formControlName="lastName" name="lastName" >
+                
+              </mat-form-field>
+            </p>
+          </div>
+          <div class="form-group"> 
+            <p>
+                <mat-form-field >
+                  <input matInput  class="form-control" [min]="minDate" [max]="maxDate" [matDatepicker]="picker" #pickerInput placeholder="Choose date of birth" formControlName="dateOfBirth" name="dateOfBirth">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                  <!-- <mat-error *ngIf="registrationForm.get('dateOfBirth').invalid">it is not allowed</mat-error>                  -->
+                  </mat-form-field>
+            </p>
+          </div>
+            <button  mat-raised-button color="primary"  (click)="editBool ? storeEditData() : onSubmit()">REGISTER</button>
+         
+        
+        </form>
+      </mat-card>
+    </div>
+    <div class="col-md-4">
+        <p><button   mat-raised-button color="accent" (click)="getAllData()">Records</button></p> 
+      </div>
+      <div class="col-md-4">
+        <p><button   mat-raised-button color="warn" (click)="logout()">Logout</button></p> 
+      </div>

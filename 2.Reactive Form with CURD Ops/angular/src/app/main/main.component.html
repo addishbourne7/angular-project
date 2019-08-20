@@ -1,0 +1,70 @@
+
+<div class="form-group">
+  <h2>Registration Form</h2>
+  
+  <mat-card>
+  <form [formGroup]="registrationForm" >
+      
+      
+        <div class="form-group">
+      <p>
+          <mat-form-field>
+            <input type="text"  class="form-control" matInput placeholder="FirstName" formControlName="firstName" name="firstName" >
+            <mat-error *ngIf="registrationForm.get('firstName').errors?.required">firstName is required</mat-error>
+          </mat-form-field>
+        </p>
+      </div>    
+      <div class="form-group">
+        <p>
+            <mat-form-field >
+              <input type="text" class="form-control" matInput placeholder="LastName" formControlName="lastName" name="lastName" >
+              
+            </mat-form-field>
+          </p>
+        </div>
+        <div class="form-group"> 
+          <p>
+              <mat-form-field >
+                <input matInput  class="form-control" [min]="minDate" [max]="maxDate" [matDatepicker]="picker" #pickerInput placeholder="Choose date of birth" formControlName="dateOfBirth" name="dateOfBirth">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <!-- <mat-error *ngIf="registrationForm.get('dateOfBirth').invalid">it is not allowed</mat-error>                  -->
+                </mat-form-field>
+          </p>
+        </div>
+          <button  mat-raised-button color="primary"  (click)="editBool ? storeEditData() : onSubmit()">REGISTER</button>
+       
+      
+      </form>
+    </mat-card>
+  </div>
+  
+      <!-- <div class="form-group" >
+    <label>firstName</label>
+    <mat-form-field>
+    <input   formControlName="firstName"  type="text" class="form-control">
+     
+     <mat-error *ngIf="registrationForm.get('firstName').error?.required">FirstName is required</mat-error> -->
+  <!-- </mat-form-field>
+    </div>
+    <div class="form-group">
+    <label>lastName </label>
+     <mat-form-field> -->
+    <!-- <input formControlName="lastName" type="text" class="form-control">
+    </div> -->
+    <!-- <p>
+    <mat-form-field>
+      <input matInput [matDatepicker]="dp" placeholder="Verbose datepicker" [formControl]="date">
+      <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+      <mat-datepicker #dp></mat-datepicker>
+    </mat-form-field>
+  </p> -->
+    <!-- <div class="form-group">   
+     <label>DateOfBirth</label>
+     <input formControlName="dateOfBirth" type="date" class="form-control">
+    </div> -->
+    
+      <!-- <button  mat-raised-button color="primary"  (click)="editBool ? storeEditData() : onSubmit()">REGISTER</button>
+    
+   -->
+  
