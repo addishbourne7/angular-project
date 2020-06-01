@@ -12,15 +12,15 @@ router.get('/google',passport.authenticate('google',{
   
 }))
 
-/* GET users listing. */
-router.get('/',async function(req, res, next) {
-  return res.status(200).send({
+ return res.status(200).send({
     users: await db.Users.findAll()
   });
 });
 router.get('/google/redirect',passport.authenticate('google'),(req,res)=>{
   res.send('you have reached to the callBAck');
-}) ;
+}) ;/* GET users listing. */
+router.get('/',async function(req, res, next) {
+ 
 
   router.post('/signup',async function(req, res, next){
     if(!req.body['name'] || !req.body['email'] || !req.body['password']) {
